@@ -18,41 +18,40 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class Subscription_Main extends AppCompatActivity {
+public class Event_Main extends AppCompatActivity {
 
-    Button varaddsubpagebtn;
+    Button varbtn;
 
     RecyclerView recyclerView;
     DatabaseReference database;
-    SubscriptionAdapter subscriptionAdapter;
-    ArrayList<Subscription> list;
-
+    EventAdapter eventAdapter;
+    ArrayList<Event> list;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_subscription_main);
+        setContentView(R.layout.activity_event_main);
 
-        recyclerView = findViewById(R.id.rc_subscription);
-        database = FirebaseDatabase.getInstance().getReference("Subscription2");
+        recyclerView = findViewById(R.id.rc_event);
+        database = FirebaseDatabase.getInstance().getReference("Events2");
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        list =new ArrayList<>();
-        subscriptionAdapter = new SubscriptionAdapter(this,list);
-        recyclerView.setAdapter(subscriptionAdapter);
+        list = new ArrayList<>();
+        eventAdapter = new EventAdapter(this, list);
+        recyclerView.setAdapter(eventAdapter);
 
         database.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 list.clear();
-                for(DataSnapshot dataSnapshot: snapshot.getChildren()){
-                    Subscription subscription = dataSnapshot.getValue(Subscription.class);
-                    list.add(subscription);
+                for(DataSnapshot dataSnapshot : snapshot.getChildren()){
+                    Event event = dataSnapshot.getValue(Event.class);
+                    list.add(event);
                 }
-                subscriptionAdapter.notifyDataSetChanged();
-            }
 
+                eventAdapter.notifyDataSetChanged();
+            }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
@@ -62,11 +61,12 @@ public class Subscription_Main extends AppCompatActivity {
 
 
 
-        varaddsubpagebtn = findViewById(R.id.addsubscriptionpagebtn);
-        varaddsubpagebtn.setOnClickListener(new View.OnClickListener() {
+
+        varbtn = findViewById(R.id.addeventbtn);
+        varbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(), Subscription_add.class));
+                startActivity(new Intent(getApplicationContext(), Event_Add.class));
             }
         });
     }

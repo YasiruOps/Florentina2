@@ -6,11 +6,7 @@ import java.io.Serializable;
 
 public class Customer  implements Serializable {
 
-
-
     @Exclude private String id;
-
-
 
     String Address, Email, Name, Password, Phone, UserName;
 

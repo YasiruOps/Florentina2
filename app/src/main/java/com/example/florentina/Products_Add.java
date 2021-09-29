@@ -2,6 +2,7 @@ package com.example.florentina;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -45,6 +46,8 @@ public class Products_Add extends AppCompatActivity {
 
                  db.push().setValue(product);
                  Toast.makeText(Products_Add.this, "data inserted sucessfully", Toast.LENGTH_SHORT).show();
+                   startActivity(new Intent(getApplicationContext(), Products_Main.class));
+
             }
         });
     }

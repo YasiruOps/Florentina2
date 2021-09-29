@@ -57,7 +57,7 @@ public class AdminPortal extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 FirebaseAuth.getInstance().signOut();
-                startActivity(new Intent(getApplicationContext(), LoginPage.class));
+                startActivity(new Intent(getApplicationContext(), AdminLogin.class));
                 finish();
             }
         });

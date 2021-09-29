@@ -3,6 +3,7 @@ package com.example.florentina;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -51,6 +52,8 @@ public class Subscription_add extends AppCompatActivity {
 
                 db.push().setValue(subscription);
                 Toast.makeText(Subscription_add.this, "data inserted sucessfully", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(getApplicationContext(),
+                        Subscription_Main.class));
             }
         });
     }

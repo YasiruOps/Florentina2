@@ -40,7 +40,7 @@ public class HomePage extends AppCompatActivity {
                     startActivity(intent2);
                     break;
                 case R.id.ic_event:
-                    Intent intent3 = new Intent(HomePage.this, EventPage.class);
+                    Intent intent3 = new Intent(HomePage.this, Event_Main.class);
                     startActivity(intent3);
                     break;
                 case R.id.ic_userprofile:
