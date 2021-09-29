@@ -1,0 +1,76 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <string name="Open">NavBar</string>
+    <string name="Close">NavBar</string>
+
+    <!-- Signup Page -->
+    <string name="app_name">Florantina</string>
+
+    <string name="createaccount">CREAT ACCOUNT</string>
+    <string name="enternamee">Enter Name</string>
+    <string name="enterusername">Enter Username</string>
+    <string name="enterpassword"> Enter Password</string>
+    <string name="enterenamil">Enter Email</string>
+    <string name="enteraddress">Enter Address</string>
+    <string name="signinbtn">SIGN IN</string>
+    <string name="orsign"> --------------------------or--------------------------</string>
+    <string name="loginbtn">LOGIN</string>
+
+    <!-- Login Page -->
+    <string name="welcomeback">WELCOME BACK</string>
+    <string name="forgotpassword">Forgot password?</string>
+    <string name="rememberme">Remember me</string>
+    <string name="noaccount">If you do not already have an account</string>
+    <string name="signuppagelink"><a href="">SIGN UP</a></string>
+    <string name="adminlogin">Click <a href="">here</a> to login as admin</string>
+
+    <!-- Profile page -->
+    <string name="logoutbtn">LOGOUT </string>
+    <string name="updatebtn">UPDATE </string>
+    <string name="profilepage">PROFILE</string>
+    <string name="username">Username :</string>
+    <string name="name">Name :</string>
+    <string name="address">Address :</string>
+    <string name="phone">Phone :</string>
+    <string name="email">Email :</string>
+
+
+    <!-- Admin Login Page -->
+    <string name="adminportal">WELCOME TO ADMIN PORTAL</string>
+
+    <string name="adminlogin1">ADMIN LOGIN</string>
+
+    <!-- Admin Page -->
+    <string name="adminportalsel">ADMIN PORTAL</string>
+    <string name="cusmanager">Customer Management</string>
+    <string name="packmanagement">Package Management</string>
+    <string name="subsmanagement">Subscription Management</string>
+    <string name="eventmanagement">Event Management</string>
+    <string name="proceedbtn">Proceed</string>
+    <string name="title_activity_home_page">HomePage</string>
+
+
+    <!-- Customer Management -->
+    <string name="addcustomerbtn">ADD CUSTOMER</string>
+    <string name="cusmanagement">CUSTOMER MANAGEMENT</string>
+
+    <!-- Create Cutomer -->
+    <string name="createcus">CREATE CUSTOMER</string>
+
+
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+
+    <string name="app_label">App label</string>
+    <string name="search_hint">Search</string>
+
+    <!-- SANJANA PART -->
+    <string name="hellowold">H E E EEEEEeeee</string>
+    <string name="title_activity_products_view">ProductsView</string>
+</resources>

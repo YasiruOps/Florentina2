@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "427277289794",
+    "project_id": "florantina-1a9ba",
+    "storage_bucket": "florantina-1a9ba.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:427277289794:android:636dd1f02ef3bf301860db",
+        "android_client_info": {
+          "package_name": "com.example.florentina"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "427277289794-ogn0v6hgbrhuh030g7vsd55ljrho7ocf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBJZPYsOggWQex7-DLScZUxVULL_LuaFfw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "427277289794-ogn0v6hgbrhuh030g7vsd55ljrho7ocf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:427277289794:android:867f2fdb202875651860db",
+        "android_client_info": {
+          "package_name": "com.florantina.project"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "427277289794-ogn0v6hgbrhuh030g7vsd55ljrho7ocf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBJZPYsOggWQex7-DLScZUxVULL_LuaFfw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "427277289794-ogn0v6hgbrhuh030g7vsd55ljrho7ocf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
