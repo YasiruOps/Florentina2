@@ -114,7 +114,6 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductH
         });
 
         //DELETE CRUD
-        //TestCommit
         holder.btndelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
