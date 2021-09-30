@@ -1,9 +1,16 @@
 package com.example.florentina;
 
+import com.google.firebase.firestore.Exclude;
+
 public class Subscription {
 
     private String Name, Desription, ImageURL;
     private Float Price;
+
+    @Exclude
+    private String subid;
+
+
 
     Subscription(){}
 
@@ -12,6 +19,14 @@ public class Subscription {
         Desription = desription;
         ImageURL = imageURL;
         Price = price;
+    }
+
+    public String getSubid() {
+        return subid;
+    }
+
+    public void setSubid(String subid) {
+        this.subid = subid;
     }
 
     public String getName() {

@@ -103,5 +103,5 @@
         android:background="@drawable/rounded"
         android:text="Update"
         android:gravity="center"
-        android:id="@+id/btnUpdate"/>
+        android:id="@+id/subbtnUpdate"/>
 </LinearLayout>

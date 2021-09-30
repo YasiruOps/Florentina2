@@ -38,10 +38,10 @@ public class CustomerAdapter extends RecyclerView.Adapter<CustomerAdapter.Custom
 
         Customer cus = customerArrayList.get(position);
 
-        holder.name.setText(cus.Name);
-        holder.phone.setText(cus.Phone);
-        holder.email.setText(cus.Email);
-        holder.address.setText(cus.Address);
+        holder.name.setText(cus.getName());
+        holder.phone.setText(cus.getPhone());
+        holder.email.setText(cus.getEmail());
+        holder.address.setText(cus.getAddress());
 
     }
 

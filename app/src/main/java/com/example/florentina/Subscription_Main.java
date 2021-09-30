@@ -27,7 +27,6 @@ public class Subscription_Main extends AppCompatActivity {
     SubscriptionAdapter subscriptionAdapter;
     ArrayList<Subscription> list;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,7 +47,12 @@ public class Subscription_Main extends AppCompatActivity {
                 list.clear();
                 for(DataSnapshot dataSnapshot: snapshot.getChildren()){
                     Subscription subscription = dataSnapshot.getValue(Subscription.class);
+
+                    //SETS KEY WHICH IS LATER FETCHED BY DELETE AND UPDATE
+                    subscription.setSubid(dataSnapshot.getKey());
                     list.add(subscription);
+
+
                 }
                 subscriptionAdapter.notifyDataSetChanged();
             }

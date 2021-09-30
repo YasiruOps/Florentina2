@@ -58,12 +58,11 @@ public class CustomerPage extends AppCompatActivity {
         recyclerView = findViewById(R.id.rc_view);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setAdapter(customerAdapter);
 
         fStore = FirebaseFirestore.getInstance();
         customerArrayList = new ArrayList<Customer>();
         customerAdapter = new CustomerAdapter(CustomerPage.this, customerArrayList);
-
+        recyclerView.setAdapter(customerAdapter);
 
 
         EventChangeListner();
