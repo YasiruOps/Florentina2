@@ -63,7 +63,7 @@ public class SubscriptionAdapter extends RecyclerView.Adapter<SubscriptionAdapte
             public void onClick(View v) {
                 final DialogPlus dialogPlus = DialogPlus.newDialog(holder.img.getContext())
                         .setContentHolder(new ViewHolder(R.layout.update_subspopup))
-                        .setExpanded(true, 1900)
+                        .setExpanded(true, 1650)
                         .create();
 
 

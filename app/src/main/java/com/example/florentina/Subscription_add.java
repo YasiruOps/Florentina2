@@ -1,6 +1,5 @@
 package com.example.florentina;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -13,8 +12,6 @@ import android.widget.Toast;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-import java.lang.reflect.Member;
-
 
 public class Subscription_add extends AppCompatActivity {
 
@@ -26,7 +23,7 @@ public class Subscription_add extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_subscriptiona_add);
+        setContentView(R.layout.activity_subscription_add);
 
         txtname = findViewById(R.id.subscriptionname);
         txtdescription =findViewById(R.id.subscriptiondescription);

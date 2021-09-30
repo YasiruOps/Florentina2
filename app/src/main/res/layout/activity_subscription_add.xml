@@ -44,6 +44,7 @@
         <EditText
             android:id="@+id/subscriptionname"
             android:layout_width="match_parent"
+            android:inputType="textPersonName"
             android:layout_height="wrap_content" />
     </LinearLayout>
 
@@ -65,7 +66,8 @@
         <EditText
             android:id="@+id/subscriptiondescription"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:inputType="textLongMessage"/>
     </LinearLayout>
 
     <LinearLayout
@@ -86,7 +88,8 @@
         <EditText
             android:id="@+id/subscriptionprice"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:inputType="number"/>
     </LinearLayout>
 
     <LinearLayout
@@ -107,7 +110,8 @@
         <EditText
             android:id="@+id/subscriptionpictureurl"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:inputType="textLongMessage"/>
     </LinearLayout>
 
     <Button
