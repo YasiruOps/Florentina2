@@ -14,7 +14,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class Products_Add extends AppCompatActivity {
 
-    EditText varname, vardesc, varprice, varurl;
+    EditText varname, vardesc, varprice, varurl, varquantity;
     Button varbtn;
     Product product;
 
@@ -28,7 +28,8 @@ public class Products_Add extends AppCompatActivity {
         varname=findViewById(R.id.productname);
         vardesc=findViewById(R.id.productdesc);
         varprice=findViewById(R.id.productprice);
-        varurl=findViewById(R.id.producturl);
+        varquantity = findViewById(R.id.productquantity);
+        varurl = findViewById(R.id.producturl);
 
         product = new Product();
 
@@ -39,10 +40,12 @@ public class Products_Add extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                  Float price = Float.parseFloat(varprice.getText().toString().trim());
+
                  product.setName(varname.getText().toString());
                  product.setDescription(vardesc.getText().toString());
                  product.setPrice(price);
                  product.setImageURL(varurl.getText().toString());
+                 product.setQuantity(Integer.parseInt(varquantity.getText().toString()));
 
                  db.push().setValue(product);
                  Toast.makeText(Products_Add.this, "data inserted sucessfully", Toast.LENGTH_SHORT).show();

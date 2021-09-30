@@ -14,7 +14,6 @@
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:background="@color/green">
-
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -39,12 +38,17 @@
                 android:layout_height="wrap_content"
                 android:textSize="20sp"
                 android:text="Name"
+                android:gravity="center"
                 />
 
             <EditText
+                android:gravity="center"
                 android:id="@+id/productname"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:inputType="text"
+                android:background="@drawable/rounded"/>
         </LinearLayout>
 
         <LinearLayout
@@ -60,12 +64,43 @@
                 android:layout_height="wrap_content"
                 android:textSize="20sp"
                 android:text="Description"
+                android:gravity="center"
                 />
 
             <EditText
+                android:inputType="text"
+                android:gravity="center"
                 android:id="@+id/productdesc"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:background="@drawable/rounded"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="20dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:text="Quantity"
+                android:gravity="center"
+                />
+
+            <EditText
+                android:inputType="number"
+                android:gravity="center"
+                android:id="@+id/productquantity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:background="@drawable/rounded"/>
         </LinearLayout>
 
         <LinearLayout
@@ -81,12 +116,17 @@
                 android:layout_height="wrap_content"
                 android:textSize="20sp"
                 android:text="Price"
+                android:gravity="center"
                 />
 
             <EditText
+                android:inputType="number"
+                android:gravity="center"
                 android:id="@+id/productprice"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:background="@drawable/rounded"/>
         </LinearLayout>
 
         <LinearLayout
@@ -98,6 +138,7 @@
             android:layout_marginTop="20dp">
 
             <TextView
+                android:gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="20sp"
@@ -105,9 +146,13 @@
                 />
 
             <EditText
+                android:inputType="textLongMessage"
+                android:gravity="center"
                 android:id="@+id/producturl"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:background="@drawable/rounded"/>
         </LinearLayout>
 
         <Button
@@ -116,9 +161,10 @@
             android:layout_gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="ADD PRODUCT"/>
-
-    </LinearLayout>
+            android:text="ADD"
+            android:padding="5dp"
+            android:background="@drawable/rounded"/>
+        </LinearLayout>
 
 </RelativeLayout>
 

@@ -48,6 +48,9 @@ public class Products_Main extends AppCompatActivity {
                        list.clear();
                        for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                            Product product = dataSnapshot.getValue(Product.class);
+
+                           //sets key to be used by update
+                           product.setProductId(dataSnapshot.getKey());
                            list.add(product);
                        }
                        productAdapter.notifyDataSetChanged();
@@ -60,10 +63,6 @@ public class Products_Main extends AppCompatActivity {
                    }
 
                });
-
-
-
-
 
         varbtn = findViewById(R.id.linktoaddproductpage);
         varbtn.setOnClickListener(new View.OnClickListener() {
