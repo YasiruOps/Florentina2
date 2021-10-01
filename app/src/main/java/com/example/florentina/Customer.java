@@ -4,9 +4,11 @@ import com.google.firebase.firestore.Exclude;
 
 import java.io.Serializable;
 
-public class Customer  implements Serializable {
+public class Customer{
 
-    @Exclude private String id;
+
+
+    @Exclude private String cusid;
 
     String Address, Email, Name, Password, Phone, UserName;
 
@@ -21,12 +23,12 @@ public class Customer  implements Serializable {
         UserName = userName;
     }
 
-    public String getId() {
-        return id;
+    public String getCusid() {
+        return cusid;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setCusid(String cusid) {
+        this.cusid = cusid;
     }
 
     public String getAddress() {

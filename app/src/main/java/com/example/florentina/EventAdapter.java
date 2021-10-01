@@ -44,11 +44,13 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventHolder>
         return new EventHolder(v);
     }
 
+
     @Override
     public void onBindViewHolder(@NonNull EventAdapter.EventHolder holder, int position) {
 
         //View CRUD
         Event  event =  list.get(position);
+
         holder.name.setText(event.getName());
         holder.desc.setText(event.getDesc());
         holder.expdate.setText(event.getExpdate());

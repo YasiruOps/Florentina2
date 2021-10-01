@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -44,14 +45,14 @@ public class Subscription_Main extends AppCompatActivity {
         database.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+
                 list.clear();
                 for(DataSnapshot dataSnapshot: snapshot.getChildren()){
-                    Subscription subscription = dataSnapshot.getValue(Subscription.class);
 
+                    Subscription subscription = dataSnapshot.getValue(Subscription.class);
                     //SETS KEY WHICH IS LATER FETCHED BY DELETE AND UPDATE
                     subscription.setSubid(dataSnapshot.getKey());
                     list.add(subscription);
-
 
                 }
                 subscriptionAdapter.notifyDataSetChanged();

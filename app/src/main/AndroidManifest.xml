@@ -34,9 +34,6 @@
             android:name=".AddCustomer"
             android:exported="true" />
         <activity
-            android:name=".UpdateCustomer"
-            android:exported="true" />
-        <activity
             android:name=".CustomerPage"
             android:exported="true" />
         <activity

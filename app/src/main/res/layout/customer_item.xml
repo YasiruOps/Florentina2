@@ -17,10 +17,11 @@
                 android:layout_height="70dp"
                 app:cardCornerRadius="250dp"
                 app:cardPreventCornerOverlap="false">
-                <ImageView
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/img4"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:scaleType="fitCenter"
+                    android:scaleType="centerCrop"
                     android:clickable="true"
                     android:background="@drawable/nice"/>
 

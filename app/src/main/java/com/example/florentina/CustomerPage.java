@@ -20,6 +20,8 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.firestore.DocumentChange;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
@@ -30,7 +32,9 @@ import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class CustomerPage extends AppCompatActivity {
 
@@ -66,22 +70,6 @@ public class CustomerPage extends AppCompatActivity {
 
 
         EventChangeListner();
-
-        fStore.collection("users").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
-            @Override
-            public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
-                if(!queryDocumentSnapshots.isEmpty()){
-                    List<DocumentSnapshot> list =queryDocumentSnapshots.getDocuments();
-                    for(DocumentSnapshot d:list){
-                        Customer cus =d.toObject(Customer.class);
-                        cus.setId(d.getId());
-                    }
-                    customerAdapter.notifyDataSetChanged();
-                }
-            }
-        });
-
-
     }
 
 
@@ -99,18 +87,17 @@ public class CustomerPage extends AppCompatActivity {
                     Log.e("Firestore error", error.getMessage());
                     return;
                 }
+                customerArrayList.clear();
+                for (DocumentSnapshot dc: value.getDocuments()) {
 
-                for (DocumentChange dc : value.getDocumentChanges()) {
+                    Customer customer = dc.toObject(Customer.class);
+                    customer.setCusid(dc.getId());
+                    customerArrayList.add(customer);
 
-                    if (dc.getType() == DocumentChange.Type.ADDED) {
-
-                        customerArrayList.add(dc.getDocument().toObject(Customer.class));
-                    }
-
-                    customerAdapter.notifyDataSetChanged();
-                    if (progressDialog.isShowing()) {
-                        progressDialog.dismiss();
-                    }
+                }
+                customerAdapter.notifyDataSetChanged();
+                if (progressDialog.isShowing()) {
+                    progressDialog.dismiss();
                 }
             }
         });

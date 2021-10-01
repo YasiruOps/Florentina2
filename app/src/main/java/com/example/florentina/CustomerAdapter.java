@@ -1,21 +1,37 @@
- package com.example.florentina;
+package com.example.florentina;
 
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.orhanobut.dialogplus.DialogPlus;
+import com.orhanobut.dialogplus.ViewHolder;
+
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class CustomerAdapter extends RecyclerView.Adapter<CustomerAdapter.CustomerViewHolder> {
 
+    public static final String TAG = "TAG";
 
     private Context context;
     private ArrayList<Customer> customerArrayList;
@@ -34,8 +50,8 @@ public class CustomerAdapter extends RecyclerView.Adapter<CustomerAdapter.Custom
     }
 
     @Override
-    public void onBindViewHolder(@NonNull CustomerViewHolder holder, int position) {
-
+    public void onBindViewHolder(@NonNull CustomerAdapter.CustomerViewHolder holder, int position) {
+        //View Crud
         Customer cus = customerArrayList.get(position);
 
         holder.name.setText(cus.getName());
@@ -43,8 +59,70 @@ public class CustomerAdapter extends RecyclerView.Adapter<CustomerAdapter.Custom
         holder.email.setText(cus.getEmail());
         holder.address.setText(cus.getAddress());
 
-    }
+        holder.editbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DialogPlus dialogPlus = DialogPlus.newDialog(holder.img.getContext())
+                        .setContentHolder(new ViewHolder(R.layout.customer_popup))
+                        .setExpanded(true, 2000)
+                        .create();
 
+                View view = dialogPlus.getHolderView();
+
+                EditText username, name, phone, address, email, password;
+
+                username = view.findViewById(R.id.userusername);
+                name = view.findViewById(R.id.username);
+                phone = view.findViewById(R.id.userphone);
+                address = view.findViewById(R.id.useraddress);
+                email = view.findViewById(R.id.useremail);
+                password = view.findViewById(R.id.userpword);
+
+                Button btnUpdate = view.findViewById(R.id.customerpopup_submitbtn);
+
+
+                username.setText(cus.getUserName());
+                name.setText(cus.getName());
+                phone.setText(cus.getPhone());
+                address.setText(cus.getAddress());
+                email.setText(cus.getEmail());
+                password.setText(cus.getPassword());
+
+                dialogPlus.show();
+
+                btnUpdate.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Map<String, Object> map = new HashMap<>();
+                        map.put("Address", address.getText().toString());
+                        map.put("Email", email.getText().toString());
+                        map.put("Name", name.getText().toString());
+                        map.put("Password", password.getText().toString());
+                        map.put("Phone", phone.getText().toString());
+                        map.put("UserName", username.getText().toString());
+
+                        DocumentReference documentReference = FirebaseFirestore.getInstance().collection("users").document(cus.getCusid());
+                        documentReference.update(map)
+                                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                    @Override
+                                    public void onSuccess(Void unused) {
+                                        Toast.makeText(context, "Data updated sucessfully", Toast.LENGTH_SHORT).show();
+                                        dialogPlus.dismiss();
+                                    }
+                                })
+                                .addOnFailureListener(new OnFailureListener() {
+                                    @Override
+                                    public void onFailure(@NonNull Exception e) {
+                                        Toast.makeText(context, "Error while updating", Toast.LENGTH_SHORT).show();
+                                    }
+                                });
+
+                    }
+                });
+            }
+        });
+
+    }
 
 
     //////////USed in view crud/////////////////////
@@ -54,32 +132,26 @@ public class CustomerAdapter extends RecyclerView.Adapter<CustomerAdapter.Custom
         return customerArrayList.size();
     }
 
-    public class CustomerViewHolder extends RecyclerView.ViewHolder implements  View.OnClickListener{
+    public class CustomerViewHolder extends RecyclerView.ViewHolder{
 
         TextView name, email, phone, address;
+        Button editbtn, deletebtn;
+        CircleImageView img;
+
 
         public CustomerViewHolder(@NonNull View itemView) {
             super(itemView);
-            name= itemView.findViewById(R.id.cv_name);
-            email= itemView.findViewById(R.id.cv_email);
-            phone= itemView.findViewById(R.id.cv_phone);
-            address= itemView.findViewById(R.id.cv_address);
+
+            editbtn = itemView.findViewById(R.id.useredit);
+            deletebtn = itemView.findViewById(R.id.userdelete);
+            img = itemView.findViewById(R.id.img4);
+
+            name = itemView.findViewById(R.id.cv_name);
+            email = itemView.findViewById(R.id.cv_email);
+            phone = itemView.findViewById(R.id.cv_phone);
+            address = itemView.findViewById(R.id.cv_address);
 
             //itemView.setOnClickListener(this);
         }
-
-        //Used in update crud
-        @Override
-        public void onClick(View v) {
-
-            //gets product position
-            Customer customer = customerArrayList.get(getAdapterPosition());
-
-            Intent intent = new Intent(context, UpdateCustomer.class);
-            intent.putExtra("customer", customer);
-            context.startActivity(intent);
-        }
     }
-
-
 }
