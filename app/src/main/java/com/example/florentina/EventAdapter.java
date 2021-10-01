@@ -130,8 +130,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventHolder>
                 builder.setPositiveButton("Delete", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        FirebaseDatabase.getInstance().getReference().child("Events2")
-                                .child(event.getEventId()).removeValue();
+                        FirebaseDatabase.getInstance().getReference().child("Events2").child(event.getEventId()).removeValue();
                     }
                 });
 
