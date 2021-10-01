@@ -43,6 +43,7 @@ public class Event_Add extends AppCompatActivity {
                 event.setName(varname.getText().toString());
                 event.setDesc(vardesc.getText().toString());
                 event.setPrice(price);
+                event.setExpdate(varexpDate.getText().toString());
                 event.setImgurl(varurl.getText().toString());
 
                 fStore.push().setValue(event);

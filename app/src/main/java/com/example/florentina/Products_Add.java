@@ -29,6 +29,7 @@ public class Products_Add extends AppCompatActivity {
         vardesc=findViewById(R.id.productdesc);
         varprice=findViewById(R.id.productprice);
         varquantity = findViewById(R.id.productquantity);
+
         varurl = findViewById(R.id.producturl);
 
         product = new Product();

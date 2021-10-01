@@ -1,8 +1,13 @@
 package com.example.florentina;
 
+import com.google.firebase.firestore.Exclude;
+
 public class Event {
     private String name, desc, imgurl, expdate;
     private Float price;
+
+    @Exclude
+    private String eventId;
 
     public Event(){}
 
@@ -12,6 +17,14 @@ public class Event {
         this.imgurl = imgurl;
         this.expdate = expdate;
         this.price = price;
+    }
+
+    public String getEventId() {
+        return eventId;
+    }
+
+    public void setEventId(String eventId) {
+        this.eventId = eventId;
     }
 
     public String getName() {

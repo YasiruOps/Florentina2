@@ -47,6 +47,9 @@ public class Event_Main extends AppCompatActivity {
                 list.clear();
                 for(DataSnapshot dataSnapshot : snapshot.getChildren()){
                     Event event = dataSnapshot.getValue(Event.class);
+
+                    //sets postion to be used in event adapter
+                    event.setEventId(dataSnapshot.getKey());
                     list.add(event);
                 }
 
