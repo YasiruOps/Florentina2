@@ -42,7 +42,7 @@ public class AdminPortal extends AppCompatActivity {
         eventbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(), String.class));
+                startActivity(new Intent(getApplicationContext(), Event_Main.class));
             }
         });
         packagebtn.setOnClickListener(new View.OnClickListener() {
