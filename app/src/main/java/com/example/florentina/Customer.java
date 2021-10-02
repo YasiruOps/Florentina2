@@ -6,8 +6,6 @@ import java.io.Serializable;
 
 public class Customer{
 
-
-
     @Exclude private String cusid;
 
     String Address, Email, Name, Password, Phone, UserName;

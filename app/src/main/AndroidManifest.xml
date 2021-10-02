@@ -14,18 +14,21 @@
         <activity android:name=".Event_Add"
             android:exported="true" />
         <activity android:name=".Event_Main"
+            android:windowSoftInputMode="adjustPan"
             android:exported="true"/>
         <activity
             android:name=".Products_Add"
             android:exported="true" />
         <activity
             android:name=".Products_Main"
+            android:windowSoftInputMode="adjustPan"
             android:exported="true" />
         <activity
             android:name=".Subscription_add"
             android:exported="true" />
         <activity
             android:name=".Subscription_Main"
+            android:windowSoftInputMode="adjustPan"
             android:exported="true" />
         <activity
             android:name=".UpdateUser"
@@ -35,6 +38,7 @@
             android:exported="true" />
         <activity
             android:name=".CustomerPage"
+            android:windowSoftInputMode="adjustPan"
             android:exported="true" />
         <activity
             android:name=".ShopPage"

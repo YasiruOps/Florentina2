@@ -15,6 +15,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DataSnapshot;
@@ -52,6 +53,10 @@ public class SubscriptionAdapter extends RecyclerView.Adapter<SubscriptionAdapte
     @Override
     public void onBindViewHolder(@NonNull SubscriptionAdapter.SubsViewHolder holder, int position) {
         Subscription subscription = list.get(position);
+
+        Glide.with(context)
+                .load(subscription.getImageURL())
+                .into(holder.img);
 
         holder.varsubname.setText(subscription.getName());
         holder.varsubdescription.setText(subscription.getDesription());
