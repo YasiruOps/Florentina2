@@ -14,6 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.FirebaseDatabase;
@@ -48,9 +49,13 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventHolder>
     @Override
     public void onBindViewHolder(@NonNull EventAdapter.EventHolder holder, int position) {
 
-        //View CRUD
         Event  event =  list.get(position);
 
+        //Glide.with(context)
+               // .load(event.get())
+               // .into(holder.img);
+
+        //View CRUD
         holder.name.setText(event.getName());
         holder.desc.setText(event.getDesc());
         holder.expdate.setText(event.getExpdate());

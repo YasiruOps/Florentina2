@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -14,6 +15,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.FirebaseDatabase;
@@ -46,7 +48,13 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductH
 
     @Override
     public void onBindViewHolder(@NonNull ProductAdapter.ProductHolder holder, int position) {
+
         Product product = productArrayList.get(position);
+
+        Glide.with(context)
+                .load(product.getImageURL())
+                .into(holder.img);
+
         holder.description.setText(product.getDescription());
         holder.name.setText(product.getName());
         holder.price.setText(String.valueOf(product.getPrice()));
@@ -151,7 +159,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductH
     public static class ProductHolder extends  RecyclerView.ViewHolder{
 
         TextView name, description, price, quantity;
-        CircleImageView img;
+        ImageView img;
 
         Button btnedit, btndelete;
 
