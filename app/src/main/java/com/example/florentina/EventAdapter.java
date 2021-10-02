@@ -51,9 +51,9 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventHolder>
 
         Event  event =  list.get(position);
 
-        //Glide.with(context)
-               // .load(event.get())
-               // .into(holder.img);
+        Glide.with(context)
+               .load(event.getImgurl())
+               .into(holder.img);
 
         //View CRUD
         holder.name.setText(event.getName());
