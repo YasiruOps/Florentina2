@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -32,6 +33,10 @@ public class Event_Main extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_event_main);
 
+        TextView eventcount;
+        eventcount = findViewById(R.id.event_count);
+
+
         recyclerView = findViewById(R.id.rc_event);
         database = FirebaseDatabase.getInstance().getReference("Events2");
         recyclerView.setHasFixedSize(true);
@@ -45,14 +50,17 @@ public class Event_Main extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 list.clear();
+                int count = 0;
                 for(DataSnapshot dataSnapshot : snapshot.getChildren()){
                     Event event = dataSnapshot.getValue(Event.class);
+
+                    count++;
 
                     //sets postion to be used in event adapter
                     event.setEventId(dataSnapshot.getKey());
                     list.add(event);
                 }
-
+                eventcount.setText(String.valueOf(count));
                 eventAdapter.notifyDataSetChanged();
             }
 

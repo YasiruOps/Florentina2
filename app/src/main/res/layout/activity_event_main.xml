@@ -25,6 +25,10 @@
                 android:gravity="center"
                 android:layout_marginTop="10dp"
                 />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
             <Button
                 android:id="@+id/addeventbtn"
                 android:layout_width="wrap_content"
@@ -35,6 +39,33 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="10dp"/>
 
+                <TextView
+                    android:layout_gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat_regualr"
+                    android:text="NO OF EVENTS :"
+                    android:textColor="@color/white"
+                    android:layout_marginLeft="20dp"
+                    android:textSize="16sp"
+                    android:gravity="center"
+                    android:layout_marginTop="10dp"
+                    />
+                <TextView
+                    android:id="@+id/event_count"
+                    android:layout_gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat_regualr"
+                    android:text="Event count"
+                    android:textColor="@color/white"
+                    android:layout_marginLeft="20dp"
+                    android:textSize="16sp"
+                    android:gravity="center"
+                    android:layout_marginTop="10dp"
+                    />
+
+            </LinearLayout>
         </LinearLayout>
     </LinearLayout>
     <LinearLayout
