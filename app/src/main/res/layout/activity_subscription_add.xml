@@ -111,7 +111,7 @@
             android:id="@+id/subscriptionpictureurl"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textLongMessage"/>
+            android:inputType="textUri"/>
     </LinearLayout>
 
     <Button

@@ -90,6 +90,7 @@
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:background="@drawable/rounded"
+        android:inputType="textUri"
         android:gravity="center" />
     <Button
         android:layout_width="match_parent"

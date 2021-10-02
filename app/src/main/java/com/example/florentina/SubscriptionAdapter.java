@@ -165,7 +165,7 @@ public class SubscriptionAdapter extends RecyclerView.Adapter<SubscriptionAdapte
 
         TextView varsubname, varsubdescription, varsubprice;
         Button btnedit, btndelete;
-        CircleImageView img;
+        ImageView img;
 
 
 
