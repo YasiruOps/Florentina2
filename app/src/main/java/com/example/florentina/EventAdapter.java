@@ -46,7 +46,6 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventHolder>
         return new EventHolder(v);
     }
 
-
     @Override
     public void onBindViewHolder(@NonNull EventAdapter.EventHolder holder, int position) {
 
@@ -162,7 +161,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventHolder>
     public class EventHolder extends RecyclerView.ViewHolder{
 
         TextView name, desc, price, expdate;
-        ImageView img;
+        CircleImageView img;
         Button editbtn, deletebtn;
 
         public EventHolder(@NonNull View itemView) {

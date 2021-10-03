@@ -13,19 +13,15 @@
         android:orientation="horizontal"
         android:padding="5dp">
 
-        <androidx.cardview.widget.CardView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:cardCornerRadius="250dp"
-            app:cardPreventCornerOverlap="false">
-            <ImageView
-                android:id="@+id/img3"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:scaleType="centerCrop"
-                android:clickable="true"
-                android:background="@drawable/event"/>
-        </androidx.cardview.widget.CardView>
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/img3"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:src="@drawable/event"
+            app:civ_border_color="#FF000000"/>
+
 
         <LinearLayout
             android:layout_width="match_parent"
