@@ -23,6 +23,8 @@ public class HomePage extends AppCompatActivity {
 
 
 
+
+
     ///NAVIGATION BAR
     BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottom_navigation);
     //BottomNavigationViewHelper.disableShiftMode(bottomNavigationView);
@@ -36,7 +38,7 @@ public class HomePage extends AppCompatActivity {
                     startActivity(intent1);
                     break;
                 case R.id.ic_shop:
-                    Intent intent2 = new Intent(HomePage.this, ShopPage.class);
+                    Intent intent2 = new Intent(HomePage.this, productUser.class);
                     startActivity(intent2);
                     break;
                 case R.id.ic_event:
