@@ -14,4 +14,6 @@
     <color name="thatblue">#1A5276</color>
     <color name="nocolor">#000000</color>
     <color name="red">#B81515</color>
+    <color name="transparent">#0000ffff</color>
+
 </resources>

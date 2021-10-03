@@ -5,9 +5,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -61,5 +64,16 @@ public class Event_UserMain extends AppCompatActivity {
 
             }
         });
+
+        //FLOATING CALCULATOR
+        FloatingActionButton calcbtn = findViewById(R.id.floating_cal);
+
+        calcbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Event_UserMain.this, EventCalculator.class));
+            }
+        });
+
     }
 }

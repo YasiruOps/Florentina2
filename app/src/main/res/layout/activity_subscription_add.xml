@@ -45,6 +45,8 @@
             android:id="@+id/subscriptionname"
             android:layout_width="match_parent"
             android:inputType="textPersonName"
+            android:background="@drawable/rounded"
+            android:padding="5dp"
             android:layout_height="wrap_content" />
     </LinearLayout>
 
@@ -67,7 +69,10 @@
             android:id="@+id/subscriptiondescription"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textLongMessage"/>
+            android:inputType="textLongMessage"
+            android:background="@drawable/rounded"
+            android:padding="5dp"
+            />
     </LinearLayout>
 
     <LinearLayout
@@ -89,6 +94,8 @@
             android:id="@+id/subscriptionprice"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/rounded"
+            android:padding="5dp"
             android:inputType="number"/>
     </LinearLayout>
 
@@ -111,6 +118,8 @@
             android:id="@+id/subscriptionpictureurl"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/rounded"
+            android:padding="5dp"
             android:inputType="textUri"/>
     </LinearLayout>
 
