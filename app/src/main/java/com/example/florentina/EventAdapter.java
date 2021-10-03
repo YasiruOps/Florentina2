@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -52,8 +53,8 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventHolder>
         Event  event =  list.get(position);
 
         Glide.with(context)
-               .load(event.getImgurl())
-               .into(holder.img);
+                .load(event.getImgurl())
+                .into(holder.img);
 
         //View CRUD
         holder.name.setText(event.getName());
@@ -161,7 +162,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventHolder>
     public class EventHolder extends RecyclerView.ViewHolder{
 
         TextView name, desc, price, expdate;
-        CircleImageView img;
+        ImageView img;
         Button editbtn, deletebtn;
 
         public EventHolder(@NonNull View itemView) {

@@ -18,8 +18,12 @@
         <activity
             android:name=".Products_Add"
             android:exported="true" />
+
         <activity
             android:name=".Products_Main"
+            android:exported="true" />
+        <activity
+            android:name=".productUser"
             android:exported="true" />
         <activity
             android:name=".Subscription_add"
@@ -32,9 +36,6 @@
             android:exported="true" />
         <activity
             android:name=".AddCustomer"
-            android:exported="true" />
-        <activity
-            android:name=".UpdateCustomer"
             android:exported="true" />
         <activity
             android:name=".CustomerPage"

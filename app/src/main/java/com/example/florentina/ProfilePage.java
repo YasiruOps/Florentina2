@@ -138,7 +138,7 @@ public class ProfilePage extends AppCompatActivity {
                         startActivity(intent1);
                         break;
                     case R.id.ic_shop:
-                        Intent intent2 = new Intent(ProfilePage.this, ShopPage.class);
+                        Intent intent2 = new Intent(ProfilePage.this, productUser.class);
                         startActivity(intent2);
                         break;
                     case R.id.ic_event:

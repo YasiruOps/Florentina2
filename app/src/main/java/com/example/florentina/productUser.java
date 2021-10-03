@@ -6,9 +6,12 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -22,24 +25,55 @@ public class productUser extends AppCompatActivity {
 
     RecyclerView recyclerView;
     ArrayList<Product> list;
-    ProductAdapter productAdapter;
+    ProductUserAdapter productUserAdapter;
     DatabaseReference database;
-
     Button varbtn;
+
+//    private Integer counter = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product_user);
 
-        recyclerView = findViewById(R.id.rc_products);
+        recyclerView = findViewById(R.id.user_rv_product);
         database = FirebaseDatabase.getInstance().getReference("Products");
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
+//        ImageView plus, minus;
+//        TextView total, pcount;
+//
+//        plus = findViewById(R.id.plus_sign);
+//        minus = findViewById(R.id.minus_sign);
+//
+//        total = findViewById(R.id.totalproducts);
+//        pcount = findViewById(R.id.product_count);
+//
+//        plus.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                counter++;
+//            }
+//        });
+//
+//        minus.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                counter--;
+//            }
+//        });
+//
+//        pcount.setText(Integer.toString(counter));
+
+
+
+
+
+
         list =new ArrayList<>();
-        productAdapter = new ProductAdapter(this,list);
-        recyclerView.setAdapter(productAdapter);
+        productUserAdapter = new ProductUserAdapter(this,list);
+        recyclerView.setAdapter(productUserAdapter);
 
         database.addValueEventListener(new ValueEventListener() {
             @Override
@@ -52,7 +86,7 @@ public class productUser extends AppCompatActivity {
                     product.setProductId(dataSnapshot.getKey());
                     list.add(product);
                 }
-                productAdapter.notifyDataSetChanged();
+                productUserAdapter.notifyDataSetChanged();
             }
 
 
@@ -62,14 +96,5 @@ public class productUser extends AppCompatActivity {
             }
 
         });
-
-        varbtn = findViewById(R.id.linktoaddproductpage);
-        varbtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(), Products_Add.class));
-            }
-        });
-
     }
 }
