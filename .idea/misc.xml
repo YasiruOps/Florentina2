@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/ACER/AndroidStudioProjects/Florentina2/app/src/main/res/drawable/product_card_back.xml" value="0.265625" />
         <entry key="..\:/Users/ACER/AndroidStudioProjects/Florentina2/app/src/main/res/layout/activity_event_main.xml" value="0.25" />
         <entry key="..\:/Users/ACER/AndroidStudioProjects/Florentina2/app/src/main/res/layout/activity_home_page.xml" value="0.25" />
         <entry key="..\:/Users/ACER/AndroidStudioProjects/Florentina2/app/src/main/res/layout/activity_product_item.xml" value="0.2359375" />
@@ -11,7 +12,8 @@
         <entry key="..\:/Users/ACER/AndroidStudioProjects/Florentina2/app/src/main/res/layout/activity_products_main.xml" value="0.25" />
         <entry key="..\:/Users/ACER/AndroidStudioProjects/Florentina2/app/src/main/res/layout/event_item.xml" value="0.25" />
         <entry key="..\:/Users/ACER/AndroidStudioProjects/Florentina2/app/src/main/res/layout/product_item.xml" value="0.25" />
-        <entry key="..\:/Users/ACER/AndroidStudioProjects/Florentina2/app/src/main/res/layout/product_user_item.xml" value="0.24947916666666667" />
+        <entry key="..\:/Users/ACER/AndroidStudioProjects/Florentina2/app/src/main/res/layout/product_user_item.xml" value="0.4" />
+        <entry key="..\:/Users/ACER/AndroidStudioProjects/Florentina2/app/src/main/res/menu/nav_menu.xml" value="0.24947916666666667" />
       </map>
     </option>
   </component>
