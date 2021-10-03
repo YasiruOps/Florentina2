@@ -142,8 +142,12 @@ public class ProfilePage extends AppCompatActivity {
                         startActivity(intent2);
                         break;
                     case R.id.ic_event:
-                        Intent intent3 = new Intent(ProfilePage.this, Event_Main.class);
+                        Intent intent3 = new Intent(ProfilePage.this, Event_UserMain.class);
                         startActivity(intent3);
+                        break;
+                    case R.id.ic_random:
+                        Intent intent4 = new Intent(ProfilePage.this, Subscription_UserMain.class);
+                        startActivity(intent4);
                         break;
                     case R.id.ic_userprofile:
                         Intent intent5 = new Intent(ProfilePage.this, ProfilePage.class);

@@ -21,37 +21,37 @@ public class HomePage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
 
-
-
-
-
-    ///NAVIGATION BAR
-    BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottom_navigation);
-    //BottomNavigationViewHelper.disableShiftMode(bottomNavigationView);
+        ///NAVIGATION BAR
+        BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottom_navigation);
+//        BottomNavigationViewHelper.disableShiftMode(bottomNavigationView);
 
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-        @Override
-        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-            switch (item.getItemId()){
-                case R.id.ic_home:
-                    Intent intent1 = new Intent(HomePage.this, HomePage.class);
-                    startActivity(intent1);
-                    break;
-                case R.id.ic_shop:
-                    Intent intent2 = new Intent(HomePage.this, productUser.class);
-                    startActivity(intent2);
-                    break;
-                case R.id.ic_event:
-                    Intent intent3 = new Intent(HomePage.this, Event_Main.class);
-                    startActivity(intent3);
-                    break;
-                case R.id.ic_userprofile:
-                    Intent intent5 = new Intent(HomePage.this, ProfilePage.class);
-                    startActivity(intent5);
-                    break;
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()){
+                    case R.id.ic_home:
+                        Intent intent1 = new Intent(HomePage.this, HomePage.class);
+                        startActivity(intent1);
+                        break;
+                    case R.id.ic_shop:
+                        Intent intent2 = new Intent(HomePage.this, productUser.class);
+                        startActivity(intent2);
+                        break;
+                    case R.id.ic_event:
+                        Intent intent3 = new Intent(HomePage.this, Event_UserMain.class);
+                        startActivity(intent3);
+                        break;
+                    case R.id.ic_random:
+                        Intent intent4 = new Intent(HomePage.this, Subscription_UserMain.class);
+                        startActivity(intent4);
+                        break;
+                    case R.id.ic_userprofile:
+                        Intent intent5 = new Intent(HomePage.this, ProfilePage.class);
+                        startActivity(intent5);
+                        break;
+                }
+                return false;
             }
-            return false;
-        }
         });
     }
 }

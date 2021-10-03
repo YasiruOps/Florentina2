@@ -54,6 +54,12 @@ public class Subscription_UserAdapter extends RecyclerView.Adapter<Subscription_
     public void onBindViewHolder(@NonNull Subscription_UserAdapter.SubsViewHolder holder, int position) {
         Subscription subscription = list.get(position);
 
+        //CALCULATION
+        Float discounted;
+        discounted = (subscription.getPrice()*(100-20)/100);
+
+        holder.discount.setText(String.valueOf(discounted));
+            ////////////////////////////////////////
         Glide.with(context)
                 .load(subscription.getImageURL())
                 .into(holder.img);
@@ -71,7 +77,7 @@ public class Subscription_UserAdapter extends RecyclerView.Adapter<Subscription_
 
     public static class SubsViewHolder extends RecyclerView.ViewHolder{
 
-        TextView varsubname, varsubdescription, varsubprice;
+        TextView varsubname, varsubdescription, varsubprice, discount;
         ImageView img;
 
 
@@ -79,6 +85,7 @@ public class Subscription_UserAdapter extends RecyclerView.Adapter<Subscription_
         public SubsViewHolder(@NonNull View itemView) {
             super(itemView);
 
+            discount = itemView.findViewById(R.id.discountedprice);
 
 
             img = itemView.findViewById(R.id.img1);

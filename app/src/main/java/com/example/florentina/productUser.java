@@ -8,11 +8,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.media.Image;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -95,6 +97,38 @@ public class productUser extends AppCompatActivity {
 
             }
 
+        });
+
+        ///NAVIGATION BAR
+        BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottom_navigation);
+
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()){
+                    case R.id.ic_home:
+                        Intent intent1 = new Intent(productUser.this, HomePage.class);
+                        startActivity(intent1);
+                        break;
+                    case R.id.ic_shop:
+                        Intent intent2 = new Intent(productUser.this, productUser.class);
+                        startActivity(intent2);
+                        break;
+                    case R.id.ic_event:
+                        Intent intent3 = new Intent(productUser.this, Event_UserMain.class);
+                        startActivity(intent3);
+                        break;
+                    case R.id.ic_random:
+                        Intent intent4 = new Intent(productUser.this, Subscription_UserMain.class);
+                        startActivity(intent4);
+                        break;
+                    case R.id.ic_userprofile:
+                        Intent intent5 = new Intent(productUser.this, ProfilePage.class);
+                        startActivity(intent5);
+                        break;
+                }
+                return false;
+            }
         });
     }
 }
