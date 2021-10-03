@@ -28,7 +28,7 @@ public class Event_UserMain extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_user_event_main);
+        setContentView(R.layout.activity_event_user_main);
 
         TextView eventcount;
         eventcount = findViewById(R.id.event_count);

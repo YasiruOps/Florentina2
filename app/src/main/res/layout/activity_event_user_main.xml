@@ -10,14 +10,14 @@
         android:id="@+id/floating_cal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+        android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
-        android:layout_marginBottom="60dp"
+        android:layout_marginTop="100dp"
         android:layout_marginRight="10dp"
-        app:maxImageSize="@android:dimen/notification_large_icon_height"
+        app:maxImageSize="@android:dimen/app_icon_size"
+        app:backgroundTint="@color/white"
         app:borderWidth="0dp"
-        android:backgroundTint="@color/transparent"
-        android:src="@drawable/calculator_event"
+        android:src="@drawable/cost_symbol"
         />
 
         <LinearLayout
