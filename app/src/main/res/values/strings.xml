@@ -75,4 +75,14 @@
     <string name="title_activity_products_view">ProductsView</string>
     <string name="weddingitemdescription"> All the flower decorations including seti bag, poruwa and table arrangments.</string>
 
+    <!--Drop Down for sanjana akki -->
+    <string-array name="names">
+        <item>Wedding</item>
+        <item>Birthdays</item>
+        <item>Baby Shower</item>
+        <item>Gender Reveal</item>
+        <item>Bridal Showers</item>
+        <item>Bridal Showers</item>
+    </string-array>
+    
 </resources>
