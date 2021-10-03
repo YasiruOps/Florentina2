@@ -159,7 +159,7 @@
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/green"
                 android:text="ADD TO CART"
-                android:layout_marginLeft="100dp"/>
+                android:layout_marginLeft="85dp"/>
 
         </LinearLayout>
     </LinearLayout>
