@@ -2,7 +2,7 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    app:cardCornerRadius="15dp"
+    app:cardCornerRadius="12dp"
     android:layout_margin="10dp"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -10,7 +10,10 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:background="#29323c"
+        android:padding="10dp">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -18,22 +21,32 @@
             android:padding="5dp">
 
             <androidx.cardview.widget.CardView
-                android:layout_width="100dp"
+                android:layout_width="167dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 app:cardPreventCornerOverlap="false">
+
                 <ImageView
                     android:id="@+id/img2"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:scaleType="centerCrop"
+                    android:layout_width="186dp"
+                    android:layout_height="138dp"
+                    android:background="@drawable/product"
                     android:clickable="true"
-                    android:background="@drawable/product"/>
+                    android:scaleType="centerCrop"
+                    tools:ignore="SpeakableTextPresentCheck" />
             </androidx.cardview.widget.CardView>
+
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical"></LinearLayout>
+
+            <LinearLayout
+                android:layout_width="190dp"
+                android:layout_height="145dp"
                 android:orientation="vertical">
+
+
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -43,13 +56,16 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
-                        android:text="Name :"/>
+                        android:text="Name :"
+                        android:textColor="@color/white" />
+
                     <TextView
                         android:id="@+id/productname"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="5dp"
-                        android:text="PRODUCT NAME"/>
+                        android:text="PRODUCT NAME"
+                        android:textColor="@color/white" />
                 </LinearLayout>
 
 
@@ -57,61 +73,71 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
-                    android:text="Description :"/>
+                    android:text="Description :"
+                    android:textColor="@color/white" />
+
                 <TextView
 
                     android:id="@+id/productdesc"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
-                    android:text="PRODUCT DESCRIPTION GOES HERE"/>
+                    android:text="PRODUCT DESCRIPTION "
+                    android:textColor="@color/white" />
+
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
                     android:layout_marginTop="20dp"
-                    >
+                    android:orientation="horizontal">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
                         android:text="Quantity :"
-                        />
+                        android:textColor="@color/white" />
+
                     <TextView
                         android:id="@+id/productquantity"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="5dp"
-                        android:text="25"/>
+                        android:text="25"
+                        android:textColor="@color/white" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="5dp"
-                        android:text="left"/>
+                        android:text="left"
+                        android:textColor="@color/white" />
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    >
+                    android:orientation="horizontal">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
                         android:text="Price :"
-                        />
+                        android:textColor="@color/white" />
+
                     <TextView
                         android:id="@+id/productprice"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="5dp"
-                        android:text="NICSSS"/>
+                        android:text="NICSSS"
+                        android:textColor="@color/white" />
                 </LinearLayout>
             </LinearLayout>
 
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -128,6 +154,7 @@
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
                 android:layout_width="wrap_content"
+                android:textColor="@color/white"
                 android:layout_height="wrap_content"
                 android:text="nice"
                 />
@@ -141,6 +168,7 @@
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
                 android:layout_width="wrap_content"
+                android:textColor="@color/white"
                 android:layout_height="wrap_content"
                 android:text="="
                 />
@@ -150,6 +178,7 @@
                 android:layout_marginRight="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/white"
                 android:text="0"
                 />
 
@@ -157,8 +186,8 @@
                 android:id="@+id/productupdatebtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:backgroundTint="@color/green"
-                android:text="ADD TO CART"
+                android:backgroundTint="#2af598"
+                android:text="+ ADD TO CART"
                 android:layout_marginLeft="85dp"/>
 
         </LinearLayout>
