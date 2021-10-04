@@ -22,8 +22,8 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/montserrat_regualr"
                 android:text="@string/adminportal"
-                android:textColor="@color/black"
-                android:layout_marginTop="40dp"
+                android:textColor="@color/white"
+                android:layout_marginTop="30dp"
                 android:textSize="96px"
                 android:gravity="center_horizontal" />
 

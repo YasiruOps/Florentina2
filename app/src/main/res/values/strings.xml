@@ -76,7 +76,7 @@
     <string name="weddingitemdescription"> All the flower decorations including seti bag, poruwa and table arrangments.</string>
 
     <!--Drop Down for sanjana akki -->
-    <string-array name="names">
+    <string-array name="event_names">
         <item>Wedding</item>
         <item>Birthdays</item>
         <item>Baby Shower</item>

@@ -1,6 +1,7 @@
 package com.example.florentina;
 
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -12,6 +13,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnFailureListener;
@@ -41,7 +43,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class ProfilePage extends AppCompatActivity {
 
     TextView username, name, address, phone, email;
-    Button varlogoutbtn, varupdatebtn;
+    Button varlogoutbtn, varupdatebtn, deletebtn;
     FirebaseAuth fAuth;
     FirebaseFirestore fStore;
     String userId;
@@ -76,6 +78,9 @@ public class ProfilePage extends AppCompatActivity {
 
         profilepic = findViewById(R.id.profilepic);
 
+        deletebtn = findViewById(R.id.deleteprofilebtn);
+
+        //Retrieve images from database
         StorageReference profileRef = storageReference.child("creatorpics/"+userId+"/profile.jpg");
         profileRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
             @Override
@@ -84,7 +89,7 @@ public class ProfilePage extends AppCompatActivity {
             }
         });
 
-
+        //display user info
         DocumentReference documentReference = fStore.collection("users").document(userId);
         documentReference.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
             @Override
@@ -102,7 +107,7 @@ public class ProfilePage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 FirebaseAuth.getInstance().signOut();
-                startActivity(new Intent(getApplicationContext(), LoginPage.class));
+                startActivity(new Intent(ProfilePage.this, LoginPage.class));
                 finish();
             }
         });
@@ -124,6 +129,51 @@ public class ProfilePage extends AppCompatActivity {
             }
         });
 
+        //DELETE
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+        deletebtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                builder.setTitle("Are you Sure ?");
+                builder.setMessage("Deleted data can't be Undo.");
+
+                builder.setPositiveButton("Delete", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        fStore.collection("users").document(userId)
+                                .delete()
+                                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                    @Override
+                                    public void onSuccess(Void unused) {
+//                                        FirebaseAuth.getInstance().signOut();
+                                        Toast.makeText(ProfilePage.this, "Account deleted successfully", Toast.LENGTH_SHORT).show();
+                                        Intent intent = new Intent(ProfilePage.this,LoginPage.class);
+                                        startActivity(intent);
+                                    }
+                                }).addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                Toast.makeText(ProfilePage.this, "error", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+
+
+
+                    }
+                });
+
+                builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Toast.makeText(ProfilePage.this, "Cancelled", Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+                builder.show();
+            }
+        });
+
 
     ///NAVIGATION BAR
         BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottom_navigation);
@@ -142,8 +192,12 @@ public class ProfilePage extends AppCompatActivity {
                         startActivity(intent2);
                         break;
                     case R.id.ic_event:
-                        Intent intent3 = new Intent(ProfilePage.this, Event_Main.class);
+                        Intent intent3 = new Intent(ProfilePage.this, Event_UserMain.class);
                         startActivity(intent3);
+                        break;
+                    case R.id.ic_random:
+                        Intent intent4 = new Intent(ProfilePage.this, Subscription_UserMain.class);
+                        startActivity(intent4);
                         break;
                     case R.id.ic_userprofile:
                         Intent intent5 = new Intent(ProfilePage.this, ProfilePage.class);
@@ -208,12 +262,5 @@ public class ProfilePage extends AppCompatActivity {
             }
         });
 
-//                .addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
-//                    @Override
-//                    public void onProgress(@NonNull UploadTask.TaskSnapshot taskSnapshot) {
-//                        double progressPercent = (100.00 * taskSnapshot.getBytesTransferred() / taskSnapshot.getTotalByteCount());
-//                        pd.setMessage("Percentage: " + (int) progressPercent + "%");
-//                    }
-//                });
     }
 }

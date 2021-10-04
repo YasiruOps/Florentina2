@@ -47,6 +47,12 @@ public class LoginPage extends AppCompatActivity {
                      varemail.setError("Email Required");
                      return;
                  }
+
+                 if(fAuth.getCurrentUser() != null){
+                    startActivity(new Intent(getApplicationContext(),ProfilePage.class));
+                    finish();
+                }
+
                  if(TextUtils.isEmpty(password)){
                      varpass.setError("Email Required");
                      return;

@@ -58,7 +58,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="55dp"
                 android:gravity="center"
-                android:layout_marginTop="-10dp"
+                android:layout_marginTop="-18dp"
                 android:fontFamily="@font/montserrat_regualr"
                 android:text="@string/createaccount"
                 android:textSize="30dp"

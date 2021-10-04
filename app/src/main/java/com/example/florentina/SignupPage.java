@@ -101,7 +101,7 @@ public class SignupPage extends AppCompatActivity {
                                                 Log.d(TAG, "onFailure "+ e.toString());
                                             }
                                         });
-                                        startActivity(new Intent(getApplicationContext(), ProfilePage.class));
+                                        startActivity(new Intent(getApplicationContext(), LoginPage.class));
                                     } else{
                                         Toast.makeText(SignupPage.this, "Error" +task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                                     }
