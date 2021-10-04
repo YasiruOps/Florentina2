@@ -25,6 +25,7 @@ import java.util.ArrayList;
 
 public class productUser extends AppCompatActivity {
 
+    private View decorView;
     RecyclerView recyclerView;
     ArrayList<Product> list;
     ProductUserAdapter productUserAdapter;
@@ -38,6 +39,7 @@ public class productUser extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product_user);
 
+        decorView = getWindow().getDecorView();
         recyclerView = findViewById(R.id.user_rv_product);
         database = FirebaseDatabase.getInstance().getReference("Products");
         recyclerView.setHasFixedSize(true);
@@ -97,6 +99,8 @@ public class productUser extends AppCompatActivity {
 
             }
 
+
+
         });
 
         ///NAVIGATION BAR
@@ -129,6 +133,34 @@ public class productUser extends AppCompatActivity {
                 }
                 return false;
             }
+
+        });
+
+        decorView.setOnSystemUiVisibilityChangeListener(new View.OnSystemUiVisibilityChangeListener() {
+
+            @Override
+            public void onSystemUiVisibilityChange(int visibility) {
+                if(visibility == 0)
+                    decorView.setSystemUiVisibility(hideSystemBars());
+            }
         });
     }
+
+    @Override
+    public void onWindowFocusChanged(boolean hasFocus) {
+        super.onWindowFocusChanged(hasFocus);
+        decorView.setSystemUiVisibility(hideSystemBars());
+
+    }
+
+
+
+    private int hideSystemBars(){
+        return View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+                | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                | View.SYSTEM_UI_FLAG_FULLSCREEN
+                | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION;
+    };
 }

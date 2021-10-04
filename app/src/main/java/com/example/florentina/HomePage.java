@@ -10,16 +10,34 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
+
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class HomePage extends AppCompatActivity {
+
+    private View decorView;
+    ImageView buy;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
+
+        decorView = getWindow().getDecorView();
+        buy = findViewById(R.id.buy_btn);
+
+        buy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(HomePage.this,productUser.class);
+                startActivity(intent);
+            }
+        });
 
         ///NAVIGATION BAR
         BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottom_navigation);
@@ -53,5 +71,32 @@ public class HomePage extends AppCompatActivity {
                 return false;
             }
         });
+
+        decorView.setOnSystemUiVisibilityChangeListener(new View.OnSystemUiVisibilityChangeListener() {
+
+            @Override
+            public void onSystemUiVisibilityChange(int visibility) {
+                if(visibility == 0)
+                    decorView.setSystemUiVisibility(hideSystemBars());
+            }
+        });
     }
+
+    @Override
+    public void onWindowFocusChanged(boolean hasFocus) {
+        super.onWindowFocusChanged(hasFocus);
+        decorView.setSystemUiVisibility(hideSystemBars());
+
+    }
+
+
+
+    private int hideSystemBars(){
+        return View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+                | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                | View.SYSTEM_UI_FLAG_FULLSCREEN
+                | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION;
+    };
 }

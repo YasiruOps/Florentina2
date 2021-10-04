@@ -28,16 +28,18 @@ public class Subscription_UserMain extends AppCompatActivity {
     DatabaseReference database;
     Subscription_UserAdapter subscription_userAdapters;
     ArrayList<Subscription> list;
+    private View decorView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_subscription_user_main);
+        decorView = getWindow().getDecorView();
 
         recyclerView = findViewById(R.id.rv_user_subscription);
         database = FirebaseDatabase.getInstance().getReference("Subscription2");
         recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
+        recyclerView.setLayoutManager(new GridLayoutManager(this, 1));
 
         list =new ArrayList<>();
         subscription_userAdapters = new Subscription_UserAdapter(this,list);
@@ -96,5 +98,32 @@ public class Subscription_UserMain extends AppCompatActivity {
             }
         });
 
+        decorView.setOnSystemUiVisibilityChangeListener(new View.OnSystemUiVisibilityChangeListener() {
+
+            @Override
+            public void onSystemUiVisibilityChange(int visibility) {
+                if(visibility == 0)
+                    decorView.setSystemUiVisibility(hideSystemBars());
+            }
+        });
+
     }
+
+    @Override
+    public void onWindowFocusChanged(boolean hasFocus) {
+        super.onWindowFocusChanged(hasFocus);
+        decorView.setSystemUiVisibility(hideSystemBars());
+
+    }
+
+
+
+    private int hideSystemBars(){
+        return View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+                | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                | View.SYSTEM_UI_FLAG_FULLSCREEN
+                | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION;
+    };
 }

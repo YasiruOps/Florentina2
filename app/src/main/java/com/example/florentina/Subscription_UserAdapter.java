@@ -85,7 +85,7 @@ public class Subscription_UserAdapter extends RecyclerView.Adapter<Subscription_
         public SubsViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            discount = itemView.findViewById(R.id.discountedprice);
+           discount = itemView.findViewById(R.id.subprice);
 
 
             img = itemView.findViewById(R.id.img1);
