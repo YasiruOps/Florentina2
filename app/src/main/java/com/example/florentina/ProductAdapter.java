@@ -34,14 +34,15 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductH
     ArrayList<Product> productArrayList;
 
     public ProductAdapter(Context context, ArrayList<Product> productArrayList) {
+        //page refrence
         this.context = context;
         this.productArrayList = productArrayList;
     }
 
     @NonNull
     @Override
+    //recycler view ekata danawa
     public ProductAdapter.ProductHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-
         View v = LayoutInflater.from(context).inflate(R.layout.product_item,parent, false);
         return new ProductHolder(v);
     }
@@ -51,6 +52,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductH
 
         Product product = productArrayList.get(position);
 
+        //RETRIEVE CRUD
         Glide.with(context)
                 .load(product.getImageURL())
                 .into(holder.img);
@@ -61,14 +63,18 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductH
         holder.quantity.setText(String.valueOf(product.getQuantity()));
 
 
+
+        //UPDATE CRUD
         holder.btnedit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //trigger popup
                 final DialogPlus dialogPlus = DialogPlus.newDialog(holder.img.getContext())
                         .setContentHolder(new ViewHolder(R.layout.products_popup))
                         .setExpanded(true, 1900)
                         .create();
 
+                //assign variable fields
                 View view = dialogPlus.getHolderView();
                 EditText varname, vardesc, varprice, varquantity, varimgurl;
                 varname = view.findViewById(R.id.enterproductname);
@@ -79,6 +85,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductH
 
                 Button btnUpdate = view.findViewById(R.id.updateproductbtn);
 
+                //used to display existing product details
                 varname.setText(product.getName());
                 vardesc.setText(product.getDescription());
                 varprice.setText(Float.toString(product.getPrice()));
@@ -98,6 +105,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductH
                         map.put("price",Float.parseFloat(varprice.getText().toString()));
                         map.put("quantity",Integer.parseInt(varquantity.getText().toString()));
 
+                        //database ekata send updated data
                         FirebaseDatabase.getInstance().getReference()
                                 .child("Products")
                                 .child(product.getProductId())
@@ -125,7 +133,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductH
         holder.btndelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                //popup delete
                 AlertDialog.Builder builder = new AlertDialog.Builder(context);
                 builder.setTitle("Are you Sure ?");
                 builder.setMessage("Deleted data can't be undone.");
@@ -133,6 +141,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductH
                 builder.setPositiveButton("Delete", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
+                        //delete data
                         FirebaseDatabase.getInstance().getReference().child("Products")
                                 .child(product.getProductId()).removeValue();
                     }

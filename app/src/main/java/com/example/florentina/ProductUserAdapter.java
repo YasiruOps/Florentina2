@@ -55,6 +55,7 @@ public class ProductUserAdapter extends RecyclerView.Adapter<ProductUserAdapter.
 
         Product product = productArrayList.get(position);
 
+        //calculation
         holder.plus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -76,10 +77,7 @@ public class ProductUserAdapter extends RecyclerView.Adapter<ProductUserAdapter.
             }
         });
 
-
-
-
-
+        //IMAGE VIEW
         Glide.with(context)
                 .load(product.getImageURL())
                 .into(holder.img);

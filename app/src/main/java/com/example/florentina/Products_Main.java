@@ -34,6 +34,7 @@ public class Products_Main extends AppCompatActivity {
         setContentView(R.layout.activity_products_main);
 
         recyclerView = findViewById(R.id.rc_products);
+        //pointer to database
         database = FirebaseDatabase.getInstance().getReference("Products");
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -42,6 +43,7 @@ public class Products_Main extends AppCompatActivity {
         productAdapter = new ProductAdapter(this,list);
         recyclerView.setAdapter(productAdapter);
 
+        //when database value change this triggers
         database.addValueEventListener(new ValueEventListener() {
                    @Override
                    public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -49,14 +51,13 @@ public class Products_Main extends AppCompatActivity {
                        for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                            Product product = dataSnapshot.getValue(Product.class);
 
-                           //sets key to be used by update
+                           //sets key to be used by update and delete
                            product.setProductId(dataSnapshot.getKey());
                            list.add(product);
                        }
+                       //changes notified to adapter
                        productAdapter.notifyDataSetChanged();
                    }
-
-
                    @Override
                    public void onCancelled(@NonNull DatabaseError error) {
 

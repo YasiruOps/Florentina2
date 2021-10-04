@@ -51,6 +51,7 @@ public class Event_UserAdapter extends RecyclerView.Adapter<Event_UserAdapter.Ev
 
         Event  event =  list.get(position);
 
+        ///Image setter
         Glide.with(context)
                 .load(event.getImgurl())
                 .into(holder.img);

@@ -67,7 +67,7 @@ public class Event_UserMain extends AppCompatActivity {
             }
         });
 
-        //FLOATING CALCULATOR
+        //FLOATING CALCULATOR trigger
         FloatingActionButton calcbtn = findViewById(R.id.floating_cal);
 
         calcbtn.setOnClickListener(new View.OnClickListener() {

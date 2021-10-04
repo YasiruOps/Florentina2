@@ -40,6 +40,7 @@ public class Products_Add extends AppCompatActivity {
         varbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                  Float price = Float.parseFloat(varprice.getText().toString().trim());
 
                  product.setName(varname.getText().toString());
@@ -48,10 +49,14 @@ public class Products_Add extends AppCompatActivity {
                  product.setImageURL(varurl.getText().toString());
                  product.setQuantity(Integer.parseInt(varquantity.getText().toString()));
 
-                 db.push().setValue(product);
-                 Toast.makeText(Products_Add.this, "data inserted sucessfully", Toast.LENGTH_SHORT).show();
-                   startActivity(new Intent(getApplicationContext(), Products_Main.class));
-
+                 if(product.getName().isEmpty() || product.getDescription().isEmpty() || product.getPrice().equals(null)|| product.getImageURL().isEmpty()){
+                     Toast.makeText(Products_Add.this, "please enter data in all fields", Toast.LENGTH_SHORT).show();
+                 }
+                 else {
+                     db.push().setValue(product);
+                     Toast.makeText(Products_Add.this, "data inserted sucessfully", Toast.LENGTH_SHORT).show();
+                     startActivity(new Intent(getApplicationContext(), Products_Main.class));
+                 }
             }
         });
     }

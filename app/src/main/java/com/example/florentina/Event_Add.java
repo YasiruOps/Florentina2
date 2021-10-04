@@ -34,6 +34,8 @@ public class Event_Add extends AppCompatActivity {
         varsubmitevent = findViewById(R.id.addbtn);
 
         event = new Event();
+
+        //database connetion
         fStore = FirebaseDatabase.getInstance().getReference().child("Events2");
 
         varsubmitevent.setOnClickListener(new View.OnClickListener() {
@@ -46,7 +48,9 @@ public class Event_Add extends AppCompatActivity {
                 event.setExpdate(varexpDate.getText().toString());
                 event.setImgurl(varurl.getText().toString());
 
+                //send data to database
                 fStore.push().setValue(event);
+
                 Toast.makeText(Event_Add.this, "Data inserted sucessfully", Toast.LENGTH_SHORT).show();
                 startActivity(new Intent(getApplicationContext(),
                         Event_Main.class));

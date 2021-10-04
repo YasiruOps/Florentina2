@@ -32,6 +32,7 @@ public class Subscription_add extends AppCompatActivity {
         submitbtn = findViewById(R.id.addsubscriptionbtn);
 
         subscription = new Subscription();
+
         db = FirebaseDatabase.getInstance().getReference().child("Subscription2");
 
         submitbtn.setOnClickListener(new View.OnClickListener() {
@@ -42,10 +43,19 @@ public class Subscription_add extends AppCompatActivity {
                 String url = txturl.getText().toString().trim();
                 Float price = Float.parseFloat(txtprice.getText().toString().trim());
 
+
+//                if(name.isEmpty() || description.isEmpty() || url.isEmpty() || price == null){
+//                    Toast.makeText(Subscription_add.this, "Please enter all data", Toast.LENGTH_SHORT).show();
+//                }
+//                else {
+//                }
+
                 subscription.setName(name);
                 subscription.setDesription(description);
                 subscription.setPrice(price);
                 subscription.setImageURL(url);
+
+
 
                 db.push().setValue(subscription);
                 Toast.makeText(Subscription_add.this, "data inserted sucessfully", Toast.LENGTH_SHORT).show();

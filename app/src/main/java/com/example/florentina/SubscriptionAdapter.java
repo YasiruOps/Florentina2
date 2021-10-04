@@ -55,13 +55,16 @@ public class SubscriptionAdapter extends RecyclerView.Adapter<SubscriptionAdapte
     public void onBindViewHolder(@NonNull SubscriptionAdapter.SubsViewHolder holder, int position) {
         Subscription subscription = list.get(position);
 
-
+        //calculation
         //disconted=(subscription.getPrice()- subscription.getPrice()*20/100);
 
+
+        //Image setter
         Glide.with(context)
                 .load(subscription.getImageURL())
                 .into(holder.img);
 
+        //VIew Crud
         holder.varsubname.setText(subscription.getName());
         holder.varsubdescription.setText(subscription.getDesription());
         holder.varsubprice.setText(String.valueOf(subscription.getPrice()));
@@ -91,6 +94,7 @@ public class SubscriptionAdapter extends RecyclerView.Adapter<SubscriptionAdapte
                 price = view.findViewById(R.id.txtPrice);
                 url = view.findViewById(R.id.txtURL);
 
+                //show already existing data in edit view
                 name.setText(subscription.getName());
                 desc.setText(subscription.getDesription());
                 price.setText(Float.toString(subscription.getPrice()));
@@ -145,6 +149,7 @@ public class SubscriptionAdapter extends RecyclerView.Adapter<SubscriptionAdapte
                 builder.setPositiveButton("Delete", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
+                        //delte from data base
                         FirebaseDatabase.getInstance().getReference().child("Subscription2")
                                 .child(subscription.getSubid()).removeValue();
                     }

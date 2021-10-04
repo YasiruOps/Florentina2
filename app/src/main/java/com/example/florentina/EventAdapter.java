@@ -64,6 +64,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventHolder>
         holder.editbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //event popup eka
                 DialogPlus dialogPlus = DialogPlus.newDialog(holder.img.getContext())
                         .setContentHolder(new ViewHolder(R.layout.event_popup))
                         .setExpanded(true, 2000)
@@ -81,6 +82,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventHolder>
 
                 Button btnUpdate = view.findViewById(R.id.editevent_submitbtn);
 
+                //show existing data
                 name.setText(event.getName());
                 desc.setText(event.getDesc());
                 price.setText(Float.toString(event.getPrice()));
@@ -134,6 +136,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventHolder>
                 builder.setPositiveButton("Delete", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
+                        //delete wenenne this line
                         FirebaseDatabase.getInstance().getReference().child("Events2").child(event.getEventId()).removeValue();
                     }
                 });

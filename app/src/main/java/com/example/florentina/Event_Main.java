@@ -38,6 +38,7 @@ public class Event_Main extends AppCompatActivity {
 
 
         recyclerView = findViewById(R.id.rc_event);
+        //database cnnetion
         database = FirebaseDatabase.getInstance().getReference("Events2");
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -49,6 +50,7 @@ public class Event_Main extends AppCompatActivity {
         database.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+
                 list.clear();
                 int count = 0;
                 for(DataSnapshot dataSnapshot : snapshot.getChildren()){
@@ -60,7 +62,9 @@ public class Event_Main extends AppCompatActivity {
                     event.setEventId(dataSnapshot.getKey());
                     list.add(event);
                 }
+                //Display number of events
                 eventcount.setText(String.valueOf(count));
+
                 eventAdapter.notifyDataSetChanged();
             }
 
