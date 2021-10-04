@@ -37,10 +37,11 @@ public class SubscriptionAdapter extends RecyclerView.Adapter<SubscriptionAdapte
     Context context;
     ArrayList<Subscription> list;
 
+    private Float disconted;
+
     public SubscriptionAdapter(Context context, ArrayList<Subscription> list) {
         this.context = context;
         this.list = list;
-
     }
 
     @NonNull
@@ -54,6 +55,9 @@ public class SubscriptionAdapter extends RecyclerView.Adapter<SubscriptionAdapte
     public void onBindViewHolder(@NonNull SubscriptionAdapter.SubsViewHolder holder, int position) {
         Subscription subscription = list.get(position);
 
+
+        disconted=(subscription.getPrice()- subscription.getPrice()*20/100);
+
         Glide.with(context)
                 .load(subscription.getImageURL())
                 .into(holder.img);
@@ -66,6 +70,9 @@ public class SubscriptionAdapter extends RecyclerView.Adapter<SubscriptionAdapte
         holder.btnedit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+
+
                 final DialogPlus dialogPlus = DialogPlus.newDialog(holder.img.getContext())
                         .setContentHolder(new ViewHolder(R.layout.update_subspopup))
                         .setExpanded(true, 1650)
@@ -163,7 +170,7 @@ public class SubscriptionAdapter extends RecyclerView.Adapter<SubscriptionAdapte
 
     public static class SubsViewHolder extends RecyclerView.ViewHolder{
 
-        TextView varsubname, varsubdescription, varsubprice;
+        TextView varsubname, varsubdescription, varsubprice, discount;
         Button btnedit, btndelete;
         ImageView img;
 
@@ -172,7 +179,7 @@ public class SubscriptionAdapter extends RecyclerView.Adapter<SubscriptionAdapte
         public SubsViewHolder(@NonNull View itemView) {
             super(itemView);
 
-
+            discount = itemView.findViewById(R.id.discountedprice);
 
             img = itemView.findViewById(R.id.img1);
 
