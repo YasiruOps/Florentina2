@@ -68,7 +68,7 @@ EventCalculator extends AppCompatActivity implements AdapterView.OnItemSelectedL
                 }
 
                 Toast.makeText(EventCalculator.this, "sum ="+sum, Toast.LENGTH_SHORT).show();
-
+                totale.setText(Integer.toString(sum));
             }
         });
 
@@ -80,22 +80,22 @@ EventCalculator extends AppCompatActivity implements AdapterView.OnItemSelectedL
         if (parent.getId() == R.id.spinner1) {
             valueFromSpinner = parent.getItemAtPosition(position).toString();
             if(valueFromSpinner == "Wedding"){
-                sum = 10000;
+                sum = 150000;
             }
             else if(valueFromSpinner=="Birthdays"){
-                sum= 10000;
+                sum= 80000;
             }
             else if(valueFromSpinner == "Baby Shower"){
-                sum= 10000;
+                sum= 50000;
             }
             else if(valueFromSpinner == "Gender Reveal"){
-                sum= 10000;
+                sum= 25000;
             }
             else if(valueFromSpinner == "Bridal Showers"){
-                sum= 10000;
+                sum= 60000;
             }
             else if(valueFromSpinner == "Baby Shower"){
-                sum= 10000;
+                sum= 70000;
             }
         }
     }

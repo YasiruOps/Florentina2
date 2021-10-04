@@ -62,7 +62,7 @@ public class LoginPage extends AppCompatActivity {
                          public void onComplete(Task<AuthResult> task) {
                              if(task.isSuccessful()){
                                  Toast.makeText(LoginPage.this, "Logged in Sucessfully", Toast.LENGTH_SHORT).show();
-                                 startActivity(new Intent(getApplicationContext(), ProfilePage.class));
+                                 startActivity(new Intent(getApplicationContext(), HomePage.class));
                              } else{
                                  Toast.makeText(LoginPage.this, "Error" +task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                              }

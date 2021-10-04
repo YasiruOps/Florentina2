@@ -56,7 +56,7 @@ public class SubscriptionAdapter extends RecyclerView.Adapter<SubscriptionAdapte
         Subscription subscription = list.get(position);
 
 
-        disconted=(subscription.getPrice()- subscription.getPrice()*20/100);
+        //disconted=(subscription.getPrice()- subscription.getPrice()*20/100);
 
         Glide.with(context)
                 .load(subscription.getImageURL())
@@ -179,7 +179,7 @@ public class SubscriptionAdapter extends RecyclerView.Adapter<SubscriptionAdapte
         public SubsViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            discount = itemView.findViewById(R.id.discountedprice);
+          //  discount = itemView.findViewById(R.id.discountedprice);
 
             img = itemView.findViewById(R.id.img1);
 

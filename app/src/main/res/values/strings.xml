@@ -6,7 +6,7 @@
     <!-- Signup Page -->
     <string name="app_name">Florantina</string>
 
-    <string name="createaccount">CREAT ACCOUNT</string>
+    <string name="createaccount">CREATE ACCOUNT</string>
     <string name="enternamee">Enter Name</string>
     <string name="enterusername">Enter Username</string>
     <string name="enterpassword"> Enter Password</string>
