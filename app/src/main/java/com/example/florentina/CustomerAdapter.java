@@ -25,6 +25,7 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.orhanobut.dialogplus.DialogPlus;
 import com.orhanobut.dialogplus.ViewHolder;
@@ -42,7 +43,10 @@ public class CustomerAdapter extends RecyclerView.Adapter<CustomerAdapter.Custom
 
     private Context context;
     private ArrayList<Customer> customerArrayList;
-    //private StorageReference storageReference;
+
+    //DATABASE REFERENCE
+    private FirebaseStorage storage;
+    private StorageReference storageReference;
 
     public CustomerAdapter(Context context, ArrayList<Customer> customerArrayList) {
         this.context = context;
@@ -71,14 +75,19 @@ public class CustomerAdapter extends RecyclerView.Adapter<CustomerAdapter.Custom
             @Override
             public void onClick(View v) {
 
+
+//                Glide.with(context)
+//                        .load(event.getImgurl())
+//                        .into(holder.img);
+
                 //SET IMAGE
-                // StorageReference profileRef = storageReference.child("creatorpics/"+cus.getCusid()+"/profile.jpg");
-                // profileRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                // @Override
-                // public void onSuccess(Uri uri) {
-                // Picasso.get().load(uri).into(holder.img);
-                //  }
-                // });
+                 StorageReference profileRef = storageReference.child("creatorpics/"+cus.getCusid()+"/profile.jpg");
+                 profileRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                 @Override
+                 public void onSuccess(Uri uri) {
+                 Picasso.get().load(uri).into(holder.img);
+                  }
+                 });
 
                 DialogPlus dialogPlus = DialogPlus.newDialog(holder.img.getContext())
                         .setContentHolder(new ViewHolder(R.layout.customer_popup))

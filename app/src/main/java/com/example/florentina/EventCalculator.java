@@ -12,7 +12,8 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class EventCalculator extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
+public class
+EventCalculator extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
 
     private Spinner mySpinner;
     private String valueFromSpinner;
